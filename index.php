@@ -10,7 +10,7 @@
     <h1>INFORMATIKA 2026</h1>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
-            <td><a href="indeks.php">Home</a></td>
+            <td><a href="index.php">Home</a></td>
             <td><a href="profile.php">Profile</a></td>
             <td><a href="contact.php">Contact</a></td>
             <td><a href="Mahasiswa.php">Data Mahasiswa</a></td>

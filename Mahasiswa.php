@@ -6,7 +6,6 @@
 
    $mahasiswas =  tampildata($qmahasiswa);
 
-   var_dump($mhs);
    //die;
 
     /// ambil data (fetch) dari lemari mahasiswa
@@ -88,8 +87,8 @@
             <td><?= $mhs["no_hp"] ?></td>
             <td><img src="Image/<?= $mhs["foto"] ?>" alt="abil.jpg" width="60px"></td>
             <td>
-                <a href="editdata.php"><button>Edit</button></a> | 
-                <a href="deletedata.php"><button>Delete</button></a>
+                <a href="editdata.php?id=<?php echo $mhs['id']; ?>"><button>Edit</button></a> | 
+                <a href="deleteData.php?id=<?= $mhs['id']?>" onclick="return confirm('Seriouly?')"><button>Delete</button></a>
             </td>
         </tr>
         

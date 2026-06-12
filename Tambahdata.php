@@ -1,3 +1,22 @@
+<?php
+    require 'fungsi.php';
+
+    if(isset($_POST["submit"])){
+        if (tambahData($_POST) > 0) {
+            echo "<script>
+                    alert('Data berhasil dimasukan')
+                    window.location.href = 'Mahasiswa.php';
+                 </script>";
+        }else {
+            echo "<script>
+                    alert('Data gagal dimasukan')
+                    window.location.href = 'Mahasiswa.php';
+                 </script>";
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +26,22 @@
 </head>
 <body>
     <h2>Tambah Data Mahasiswa</h2>
-    <form action="Mahasiswa.php" method="post" enctype = "multipart/form-data">
+    <form action="" method="post" enctype = "multipart/form-data">
         <table cellpadding="5px">
             <tr>
                 <td> <label for="nama">Nama</label></td>
                 <td>:</td>
-                <td><input type="text" id="nama" name="nama" require/></td>
+                <td><input type="text" id="nama" name="nama" required/></td>
             </tr>
             <tr>
                 <td> <label for="nim">NIM</label></td>
                 <td>:</td>
-                <td><input type="number" id="nim" name="nim" require/></td>
+                <td><input type="number" id="nim" name="nim" required/></td>
             </tr>
             <tr>
                 <td> <label for="jurusan">Jurusan</label></td>
                 <td>:</td>
-                <td><input type="text" id="jurusan" name="jurusan" require/></td>
+                <td><input type="text" id="jurusan" name="jurusan" required/></td>
             </tr>
             <tr>
                 <td> <label for="email">Email</label></td>
@@ -41,14 +60,14 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <button type="submit">Tambah</button>
+                    <button type="submit" name="submit">Tambah</button>
                 </td>
             </tr>
         </table>
     </form>
     <br>
     <hr>
-    <form action="Mahasiswa.php" method="post">
+    <!-- <form action="Mahasiswa.php" method="post">
         <table>
             <tr>
                 <td> <label for="nama">Nama</label></td>
@@ -133,6 +152,6 @@
                 </td>
             </tr>
         </table>
-    </form>
+    </form> -->
 </body>
 </html>

@@ -87,7 +87,7 @@
             <td><?= $mhs["no_hp"] ?></td>
             <td><img src="Image/<?= $mhs["foto"] ?>" alt="abil.jpg" width="60px"></td>
             <td>
-                <a href="editdata.php?id=<?php echo $mhs['id']; ?>"><button>Edit</button></a> | 
+                <a href="ubahData.php?id=<?php echo $mhs['id']; ?>"><button>Edit</button></a> | 
                 <a href="deleteData.php?id=<?= $mhs['id']?>" onclick="return confirm('Seriouly?')"><button>Delete</button></a>
             </td>
         </tr>
@@ -115,10 +115,12 @@
             <th align="center">3,1</th>
             <th align="center">3,4</th>
         </tr>
+        <tr>
             <th align="center">4,1</th>
             <th align="center">4,2</th>
             <th align="center">4,3</th>
             <th align="center">4,4</th>
+        </tr>
     </table>
 </body>
 </html>

@@ -1,4 +1,10 @@
 <?php
+    session_start();
+
+    if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+    }
 
     require "fungsi.php";
 
@@ -53,6 +59,7 @@
             <td><a href="profile.php">Profile</a></td>
             <td><a href="contact.php">Contact</a></td>
             <td><a href="Mahasiswa.php">Data Mahasiswa</a></td>
+            <td><a href="logout.php" onclick="return confirm('Apakah kamu yakin ingin keluar?')">Logout</a></td>
         </tr>
     </table>
     <br>

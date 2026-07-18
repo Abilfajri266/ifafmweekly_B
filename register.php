@@ -2,28 +2,23 @@
 require 'fungsi.php'; 
 if (isset($_POST["register"])) {
     $username = strtolower(stripslashes($_POST["username"]));
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
-
-    // Cek apakah username sudah ada
-    $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+    $username = strtolower(stripslashes($_POST["username"]));
+    $password_mentah = $_POST["password"];
+    $password = password_hash($password_mentah, PASSWORD_DEFAULT);
+    $result = mysqli_query($koneksi, "SELECT username FROM user WHERE username = '$username'");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>
                 alert('Username sudah terdaftar!');
               </script>";
     } else {
 
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        mysqli_query($koneksi, "INSERT INTO user (username, password) VALUES ('$username', '$password')");
 
-        // Tambahkan user baru ke database
-        mysqli_query($conn, "INSERT INTO users (username, password) VALUES ('$username', '$password')");
-
-        if (mysqli_affected_rows($conn) > 0) {
-            echo "<script>
-                    alert('Registrasi berhasil! Silakan login.');
-                    window.location.href = 'login.php';
-                  </script>";
+        if (mysqli_affected_rows($koneksi) > 0) {
+            header("Location: login.php?pesan=sukses");
+            exit;
         } else {
-            echo mysqli_error($conn);
+            echo mysqli_error($koneksi);
         }
     }
 }
@@ -33,6 +28,8 @@ if (isset($_POST["register"])) {
 <html lang="en">
 <head>
     <title>Halaman Registrasi</title>
+    <link rel="stylesheet" href="assets/login-style.css">
+    
 </head>
 <body>
     <h2>Halaman Registrasi</h2>

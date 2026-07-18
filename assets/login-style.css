@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12); 
+    width: 100%;
+    max-width: 420px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #2c3e50; 
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+form ul {
+    list-style-type: none; 
+}
+
+form li {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 14px; 
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2d3748;
+    background-color: #f7fafc; 
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #3182ce;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15); 
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #3182ce; 
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(49, 130, 206, 0.2);
+}
+
+
+button:hover {
+    background-color: #2b6cb0;
+    transform: translateY(-1px); 
+}
+
+.link-bawah {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #718096;
+}
+
+.link-bawah a {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.link-bawah a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+.pesan-error {
+    color: #c53030;
+    background-color: #fed7d7;
+    border: 1px solid #feb2b2;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pesan-sukses {
+    color: #2f855a; /* Teks hijau tua */
+    background-color: #c6f6d5; 
+    border: 1px solid #9ae6b4;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 500;
+}

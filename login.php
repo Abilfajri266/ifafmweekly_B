@@ -8,18 +8,16 @@ if (isset($_SESSION["login"])) {
 }
 
 if (isset($_POST["login"])) {
-    $username = $_POST["username"];
+    $username = strtolower(stripslashes($_POST["username"]));
+    $username = mysqli_real_escape_string($koneksi, $username);
     $password = $_POST["password"];
 
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
+    $result = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
 
-    // Cek username
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         
-        // Cek password
         if (password_verify($password, $row["password"])) {
-            // Set session
             $_SESSION["login"] = true;
             $_SESSION["username"] = $username;
             
@@ -35,12 +33,17 @@ if (isset($_POST["login"])) {
 <html lang="en">
 <head>
     <title>Halaman Login</title>
+    <link rel="stylesheet" href="assets/login-style.css">
 </head>
 <body>
     <h2>Halaman Login</h2>
     
+    <?php if(isset($_GET['pesan']) && $_GET['pesan'] == 'sukses') : ?>
+        <p class="pesan-sukses">Registrasi berhasil! Silakan login.</p>
+    <?php endif; ?>
+
     <?php if(isset($error)) : ?>
-        <p style="color: red; font-style: italic;">Username / Password salah!</p>
+        <p class="pesan-error">Username / Password salah!</p>
     <?php endif; ?>
 
     <form action="" method="post">
@@ -58,6 +61,6 @@ if (isset($_POST["login"])) {
             </li>
         </ul>
     </form>
-    <p>Belum punya akun? <a href="register.php">Register di sini</a></p>
+    <p class="link-bawah">Belum punya akun? <a href="register.php">Register di sini</a></p>
 </body>
 </html>

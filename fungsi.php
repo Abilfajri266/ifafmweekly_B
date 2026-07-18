@@ -29,7 +29,7 @@
 
         $newnamefoto = $date . $namafoto ;
 
-        $path = "Image/ . $newnamefoto";
+        $path = "Image/" . $newnamefoto;
 
         if (move_uploaded_file($tmpfoto, $path))
         {
